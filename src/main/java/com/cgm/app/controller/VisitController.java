@@ -29,7 +29,7 @@ public class VisitController {
 
     @GetMapping("/{visitId}")
     public ResponseEntity<VisitDto> getVisit(@PathVariable Long visitId) {
-        log.info("Fetching a visit with: " + visitId);
+        log.info("Fetching a visit by visit id: " + visitId);
         return ResponseEntity.ok(visitService.findByVisitId(visitId));
     }
 

@@ -22,7 +22,6 @@ public class Visit {
     private String familyHistory;
     @Column(nullable = false)
     private VisitType visitType;
-
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;

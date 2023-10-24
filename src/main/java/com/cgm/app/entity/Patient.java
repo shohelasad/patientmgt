@@ -21,7 +21,6 @@ public class Patient {
     private LocalDate dateOfBirth;
     @Column(nullable = false)
     private String socialSecurityNumber;
-
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Visit> visits = new ArrayList<>();
 }

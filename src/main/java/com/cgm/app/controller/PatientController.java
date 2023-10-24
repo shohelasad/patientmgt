@@ -32,7 +32,7 @@ public class PatientController {
 
     @GetMapping
     public ResponseEntity<Page<PatientDto>> getAllPatients(Pageable pageable) {
-        log.info("Fetching all patients as page list");
+        log.info("Fetching all patients as page list : {}" + pageable);
         return ResponseEntity.ok(patientService.getAllPatients(pageable));
     }
 
