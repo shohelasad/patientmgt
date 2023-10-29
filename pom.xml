@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cgi.app</groupId>
-    <artifactId>patientmgt</artifactId>
+    <artifactId>patientmanager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>patientmgt</name>
+    <name>patientmanager</name>
     <description>patient management</description>
     <properties>
         <java.version>17</java.version>

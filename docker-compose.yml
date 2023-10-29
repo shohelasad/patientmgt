@@ -2,8 +2,8 @@ version: '3.1'
 
 services:
   app:
-    container_name: patientmgt
-    image: patientmgt
+    container_name: patientmanager
+    image: patientmanager
     build: ./
     ports:
       - "8080:8080"
@@ -16,5 +16,5 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=patientmgtdb
+      - POSTGRES_DB=patientmanagerdb
 

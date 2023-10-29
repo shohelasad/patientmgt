@@ -1,4 +1,4 @@
-package com.cgm.app;
+package com.cgm.app.service;
 
 import com.cgm.app.dto.VisitDto;
 import com.cgm.app.entity.Patient;
