@@ -1,10 +1,9 @@
-package com.cgm.app;
+package com.cgm.app.service;
 
 import com.cgm.app.dto.PatientDto;
 import com.cgm.app.entity.Patient;
 import com.cgm.app.exception.ResourceNotFoundException;
 import com.cgm.app.repository.PatientRepository;
-import com.cgm.app.service.PatientService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

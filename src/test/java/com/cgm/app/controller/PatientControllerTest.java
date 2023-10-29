@@ -1,4 +1,4 @@
-package com.cgm.app;
+package com.cgm.app.controller;
 
 import com.cgm.app.controller.PatientController;
 import com.cgm.app.dto.PatientDto;

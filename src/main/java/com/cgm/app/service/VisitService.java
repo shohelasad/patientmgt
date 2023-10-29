@@ -1,12 +1,11 @@
 package com.cgm.app.service;
 
+import com.cgm.app.dto.VisitDto;
 import com.cgm.app.entity.Patient;
 import com.cgm.app.entity.Visit;
 import com.cgm.app.exception.BadRequestException;
-import com.cgm.app.repository.PatientRepository;
-import com.cgm.app.Utils.DtoUtil;
-import com.cgm.app.dto.VisitDto;
 import com.cgm.app.exception.ResourceNotFoundException;
+import com.cgm.app.repository.PatientRepository;
 import com.cgm.app.repository.VisitRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -34,7 +33,7 @@ public class VisitService {
         visit.setPatient(patient);
         Visit savedVisit = visitRepository.save(visit);
         log.info("Created a new visit: {}", savedVisit);
-        return DtoUtil.convertToVisitDto(savedVisit);
+        return convertToVisitDto(savedVisit);
     }
 
     public VisitDto updateVisit(Long visitId, VisitDto visitDto) {
@@ -43,14 +42,14 @@ public class VisitService {
         mapToVisit(visitDto, visit);
         Visit updatedVisit = visitRepository.save(visit);
         log.info("Updated a visit: {}", updatedVisit);
-        return DtoUtil.convertToVisitDto(updatedVisit);
+        return convertToVisitDto(updatedVisit);
     }
 
     public VisitDto findByVisitId(Long visitId) {
         Visit visit = visitRepository.findById(visitId)
                 .orElseThrow(() -> new ResourceNotFoundException("Visit not found with id: " + visitId));
         log.info("Fetching a visit id: {}", visitId);
-        return DtoUtil.convertToVisitDto(visit);
+        return convertToVisitDto(visit);
     }
 
     private void mapToVisit(VisitDto visitDto, Visit visit) {
@@ -58,5 +57,10 @@ public class VisitService {
         visit.setVisitReason(visitDto.visitReason());
         visit.setVisitType(visitDto.visitType());
         visit.setFamilyHistory(visitDto.familyHistory());
+    }
+
+    private VisitDto convertToVisitDto(Visit visit) {
+        return new VisitDto(visit.getId(), visit.getDateTime(), visit.getVisitReason(),
+                visit.getVisitType(), visit.getFamilyHistory(),  visit.getPatient().getId());
     }
 }
